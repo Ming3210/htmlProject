@@ -106,6 +106,12 @@ li{
     text-align: center;
     
 }
+#head{
+    margin-bottom: 40px;
+}
+#mou{
+    margin-bottom: 40px;
+}
 .item{
     display: flex;
     flex-direction: column;
@@ -123,7 +129,7 @@ li{
     height: 380px;
 }
 .main-main p{
-    padding-bottom: 50px;
+    
     font-weight: bold;
     font-size: 24px;
     
