@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../asset/image/OIP.jpg);
+    background-repeat:no-repeat ;
+    background-size: cover;
+}
+.icon{
+    color: purple;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.main .char p:first-child{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.char p:last-child{
+    margin-bottom: 30px;
+}
+.first-name{
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+}
+.last-name{
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+}
+.name{
+    display: flex;
+    gap: 30px;
+    
+}
+.email-ip{
+    margin-top: 30px;
+    width: 330px;
+    height: 40px;
+    border-radius: 8px;
+}
+.password{
+    width: 330px;
+    height: 40px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+.input{
+    width: 330px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: aqua;
+}
+.repassword{
+    width: 330px;
+    height: 40px;
+    
+    border-radius: 8px;
+    margin-top: 30px;
+}
+.input:hover{
+    cursor: pointer;
+}
+.main input[type="text"]{
+    padding-left: 10px;
+}
+.main input[type="password"]{
+    padding-left: 10px;
+}
+.checkbox{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: white;
+}
+.check p{
+    color: rgb(255, 247, 24);
+    display: none;
+}

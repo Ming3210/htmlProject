@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../style/register.css">
+</head>
+<body>
+    <div class="main">
+        <i class='bx bxl-discord-alt icon'></i>
+        <div class="char">
+            <p>Create a new account</p>
+            <p>Already have an account?<a href="./login.html">Login now</a></p>
+        </div>
+        <div class="check">
+            <div class="name">
+                <div>
+                    <input id="f-name" placeholder="First name" class="first-name" type="text">
+                    <p id="fname-error">First name can't empty</p>
+                </div>
+                <div>
+                    <input id="l-name" class="last-name" placeholder="Last name" type="text">
+                    <p id="lname-error">Last name can't empty</p>
+                </div>
+            </div>
+            <div class="email">
+                <input id="email" placeholder="Email" class="email-ip" type="text">
+                <p id="email-error">Email can't be empty</p>
+            </div>
+            <div class="pass">
+                <input id="password" placeholder="Password" class="password" type="password">
+                <p id="password-error">Password can't be empty</p>
+            </div>
+            <div class="pass-check">
+                <input id="checkpass" placeholder="Repassword" class="repassword" type="password">
+                <p id="repass-error">Repassword can't be empty</p>
+            </div>
+            <div class="checkbox">
+                <input id="checkbox" type="checkbox">
+                <span>I want to receive inspiration, marketing</span><br>
+                <span>promotions and updates via email</span>
+            </div>
+            <div>
+                <input id="submit" class="input" type="submit" value="Sign Up">
+            </div>
+        </div>
+    </div>
+    <script src="../js/signUp.js"></script>
+</body>
+</html>
