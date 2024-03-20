@@ -27,7 +27,13 @@ let product = [
         price:"1.050.000đ",
         image:"./asset/image/logitech_981_000719_g_pro_gaming_headset_1418048.jpg",
         id:1,
-        stock:20
+        stock:20,
+        description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
+        height: "183.0 mm",
+        width: "169.7 mm",
+        thickness: "73 mm",
+        weight: "185 g",
+        compatibility:"Windows, Mac OS, Linux"
     },
     {
         name:"Logitech G332 wired Stereo Gaming",
@@ -102,7 +108,8 @@ function renderProduct(){
     let element = "";
     let element2 = "";
     for (let i = 0 ;i<product.length;i++){
-        element +=`<span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span>
+        element +=`        <a href="./util/product_detail.html?id=${product[i].id}"><span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span></a>
+
         `
         element2+=`<span href="" class="item"><img src="${mouseProduct[i].image}" alt=""><p class="mouse-name">${mouseProduct[i].name}</p><p>${mouseProduct[i].price}</p><p><input onclick="sold()" id="button" value="Buy now" type="button"></p></span>
         `

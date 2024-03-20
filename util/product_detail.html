@@ -3,9 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="../style/product_detail.css">
+    
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
 </head>
 <body>
+    <header>
+        <div >
+            <a class="main" href="#Home"><i class='bx bxs-invader icon'></i>Discord</a>
+        </div>
+        <div class="navmenu">
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a id="user" class="user" href="">User</a></li>
+                <div>
+                    
+                    
+                    <li><a id="cart" href=""><i class='bx bxs-cart-add'><b id="b" class="x">0</b></i></a></li>
+                </div>
+                <li class="search"></li>
+            </ul>
+            <div class="search">
+                <input placeholder="Search here..." class="search-bar" type="text">
+                <i class='bx bx-search-alt' ></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!--Main start-->
+        <main>
+            <div class="detail">
+                <div class="item-image">
+                    <img src="../asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg" alt="">
+                </div>
+                <div>
+                    <p>Logitech G545 Wireless Lighting Rgb</p>
+                    <p class="des">The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.</p>
+                    <p class="price"> price: 1.050.000đ</p>
+                   
+                    <p class="line"><hr></p>
+                    <p onclick="detail()" class="detail-item">- &nbsp; Detail 
+                        <p class="p">+&nbsp;Height: 183.0 mm</p>
+                        <p class="p">+&nbsp;Width: 169.7 mm</p>
+                        <p class="p">+&nbsp;Thickness: 73 mm</p>
+                        <p class="p">+&nbsp;Weight: 185 g</p>
+                    </p>
+                    <p class="line"><hr></p>
+                    <p onclick="compa()" class="compa">- &nbsp; Compatibility<p class="c">Window, Mac Os</p></p>
+                    <hr>
+                    <p  onclick="buy()">- &nbsp; Buy <br><br>
+                        <div class="btn">
+                            <span><button class="btn-cart">Add to cart</button></span>
+                            <span><button class="btn-buy">Buy</button></span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </main>
+    <!--Main end-->
+
+
+    <!--Footer start-->
+    <footer class="footer">
+        <footer class="footer">
+            <div class="footer-main">
+                <p>Copyright ©&nbsp<span>Masterly</span>&nbspall right reserved. Powered by Masterly</p>
     
+                <div class="footer-icon">
+                    <a href="https://www.facebook.com/">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <i class='bx bxl-instagram' ></i>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <i class='bx bxl-twitter' ></i>
+                    </a>
+                    <a href="https://gmail.com/">
+                        <i class='bx bxl-gmail' ></i>
+                    </a>
+                </div>
+    
+            </div>
+    
+        </footer>
+    <!--Footer end-->
+    <script src="../js/product_detail.js"></script>
 </body>
 </html>
