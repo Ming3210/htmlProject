@@ -1,10 +1,15 @@
 let checkUser = JSON.parse(localStorage.getItem('user')) || []
 console.log(checkUser.length);
-if (checkUser.length !== 0){
+let scan = JSON.parse(localStorage.getItem("scan")) ||[]
+let b = document.getElementById("b")
+
+console.log(scan);
+if (scan == true){
     document.getElementById("login").style.display = "none"
     document.getElementById("register").style.display = "none"
     document.getElementById("user").style.display = "block"
     document.getElementById("user").innerText = `${localStorage.getItem("userName")}`
+    document.getElementById("cart").style.display = "block"
 }else{
     document.getElementById("login").style.display = "block"
     document.getElementById("register").style.display = "block"
@@ -92,13 +97,14 @@ localStorage.setItem("headphone",JSON.stringify(product))
 
 //render product
 
+
 function renderProduct(){
     let element = "";
     let element2 = "";
     for (let i = 0 ;i<product.length;i++){
-        element +=`<a href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p></a>
+        element +=`<span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span>
         `
-        element2+=`<a href="" class="item"><img src="${mouseProduct[i].image}" alt=""><p class="mouse-name">${mouseProduct[i].name}</p><p>${mouseProduct[i].price}</p></a>
+        element2+=`<span href="" class="item"><img src="${mouseProduct[i].image}" alt=""><p class="mouse-name">${mouseProduct[i].name}</p><p>${mouseProduct[i].price}</p><p><input onclick="sold()" id="button" value="Buy now" type="button"></p></span>
         `
     }
 
@@ -106,3 +112,71 @@ function renderProduct(){
     document.getElementById("mouse-product").innerHTML = element2
 }
 renderProduct()
+
+let checkLogin = JSON.parse(localStorage.getItem("checkLogin"))
+console.log(checkLogin);
+
+
+
+function sold(productId){
+    
+    let flag = -1
+    if(scan == ""){
+        console.log("$#@(&*&^!@#&*(&*(#!@#");
+    }else if(scan == true){
+        let checkLogin = JSON.parse(localStorage.getItem("checkLogin"))
+        let user =  JSON.parse(localStorage.getItem("user"))
+        let product = JSON.parse(localStorage.getItem("headphone"));
+        for(let i=0;i<product.length;i++){
+            if(checkLogin == user[i].id){
+                for(let j=0;j<product.length;j++){
+                    if(product[j].id==productId){
+                        let index = user[i].cart.findIndex((item, index) => {
+                            return item.id == productId
+                        })
+                        if (index == -1) {
+                            //tức là không có thêm bình thường
+                            console.log("chưa có ");
+                            user[i].cart.push({ ...product[j], quantity: 1 });
+                            localStorage.setItem("user", JSON.stringify(user));
+                            // showQuantityCart()
+                        } else {
+                            //có rồi đi tăng số lượng
+                            // mình phải biết vị trí của cái cần tăng
+                            user[i].cart[index].quantity = ++user[i].cart[index].quantity;
+                            user[i].cart[index].quantity = --user[i].cart[index].stock;
+                            localStorage.setItem("user", JSON.stringify(user));
+                        }
+                    }
+                    
+                }
+                break
+            }
+        }
+        showQuantityCart()
+    }
+}
+function showQuantityCart(){
+    let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+    let user = JSON.parse(localStorage.getItem("user"));
+    for (let i = 0; i < user.length; i++) {
+        if (user[i].id == checkLogin) {
+            b.innerHTML = user[i].cart.length
+            
+            }
+        }
+}
+
+function checkItem(){
+    let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+    let user =  JSON.parse(localStorage.getItem("user"))
+    if(scan==true){
+        for(let i = 0; i < user.length; i++){
+            if(user[i].id == checkLogin){
+                b.innerHTML = user[i].cart.length
+            }
+        }
+    }
+   
+}
+checkItem()

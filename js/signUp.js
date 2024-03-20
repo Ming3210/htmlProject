@@ -16,12 +16,12 @@ let repassError = document.getElementById("repass-error")
 let userInfo = JSON.parse(localStorage.getItem("user")) || []
 function sendInfo(){
     let user = {
+        id:Math.floor(Math.random() *9999999999999999999),
         fname: fname.value,
         lname: lname.value,
         email: email.value,
         password: password.value,
         repassword: repassword.value,
-        userId:Math.floor(Math.random() *999999999999999999),
         cart:[]
     }
     if(fnameError.style.display == "none" && lnameError.style.display == "none" && emailError.style.display == "none" && passwordError.style.display == "none" && repassError.style.display == "none" && checkbox.checked == true){
