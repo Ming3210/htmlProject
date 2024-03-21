@@ -21,6 +21,8 @@
                 <li><a href="">Services</a></li>
                 <li><a href="">Contact</a></li>
                 <li><a id="user" class="user" href="">User</a></li>
+                <li><a id="login" class="login" href="./page/login.html">Log In</a></li>
+                <li><a id="register" class="register" href="./page/register.html">Sign Up</a></li>
                 <div>
                     
                     
@@ -40,28 +42,34 @@
         <main>
             <div class="detail">
                 <div class="item-image">
-                    <img src="../asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg" alt="">
+                    <img id="image" src="../asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg" alt="">
                 </div>
                 <div>
-                    <p>Logitech G545 Wireless Lighting Rgb</p>
+                    <p id="name">Logitech G545 Wireless Lighting Rgb</p>
                     <p class="des">The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.</p>
                     <p class="price"> price: 1.050.000đ</p>
-                   
                     <p class="line"><hr></p>
-                    <p onclick="detail()" class="detail-item">- &nbsp; Detail 
-                        <p class="p">+&nbsp;Height: 183.0 mm</p>
+                    <p id="detail" onclick="detail()" class="detail-item">- &nbsp; Detail <br>
+                        <span></span><p class="p">+&nbsp;Height: 183.0 mm</p>
                         <p class="p">+&nbsp;Width: 169.7 mm</p>
                         <p class="p">+&nbsp;Thickness: 73 mm</p>
                         <p class="p">+&nbsp;Weight: 185 g</p>
                     </p>
                     <p class="line"><hr></p>
-                    <p onclick="compa()" class="compa">- &nbsp; Compatibility<p class="c">Window, Mac Os</p></p>
+                    <p id="toggle" onclick="compa()" class="compa">- &nbsp; Compatibility<p id="slider" class="c">Window, Mac Os</p></p>
                     <hr>
-                    <p  onclick="buy()">- &nbsp; Buy <br><br>
-                        <div class="btn">
+
+                    
+                    <p id="buy" onclick="buy()">- &nbsp; Buy <br><br>
+                        
+
+                        <!-- <div class="btn">
                             <span><button class="btn-cart">Add to cart</button></span>
                             <span><button class="btn-buy">Buy</button></span>
-                        </div>
+                        </div> -->
+                        
+                        <p><button onclick="sold()" class="btn-cart">Add to cart</button></p>
+                            <!-- <p><button class="btn-buy">Buy</button></p> -->
                     </p>
                 </div>
             </div>

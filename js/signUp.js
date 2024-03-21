@@ -48,6 +48,9 @@ function emailDuplicate(){
         if(check[i].email == email.value){
             emailError.innerHTML = "Email already exists"
             emailError.style.display="block";
+        }else if(!validateEmail(email.value)){
+            emailError.style.display="block";
+            emailError.innerHTML = "Invalid email address"
         }else emailError.style.display="none"
     }
     if(email.value ==""){
@@ -66,6 +69,7 @@ function validate(){
     if(email.value==""){
         emailError.style.display="block";
     }else if(!validateEmail(email.value)){
+        emailError.style.display="block";
         emailError.innerHTML = "Invalid email address"
     }else emailError.style.display="none"
 

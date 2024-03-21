@@ -22,17 +22,17 @@ function signIn(){
             localStorage.setItem("scan",JSON.stringify(scan))
             window.location.href = "../index.html"
             break;
-        }else if(user[i].email != "" && user[i].password != "" && user ){
-            document.getElementById("email-error").style.display="block"
+        }else{
+           document.getElementById("email-error").style.display="block"
             document.getElementById("password-error").style.display="block"
             document.getElementById("email-error").innerHTML="Invalid email or password"
             document.getElementById("password-error").innerHTML="Invalid email or password"
-        }
+        } 
     }
 }
 
 function check(){
-    if(user = []|| user[i].email != "" && user[i].password != ""){
+    if(user[i].email != "" || user[i].password != ""){
         document.getElementById("email-error").style.display="block"
         document.getElementById("password-error").style.display="block"
         document.getElementById("email-error").innerHTML="Invalid email or password"
@@ -45,5 +45,6 @@ submit.addEventListener("click", function(e){
     scan = false;
     e.preventDefault();
     validate()
+    // check()
     signIn()
 })
