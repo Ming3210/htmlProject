@@ -12,6 +12,7 @@ let image = document.getElementById("image")
 let asd = document.getElementsByClassName("name")
 let scaner = JSON.parse(localStorage.getItem("scan")) ||[]
 let b = document.getElementById("b")
+let item = JSON.parse(localStorage.getItem("item")) ||[]
 if (scaner == true){
    
     document.getElementById("login").style.display = "none"
@@ -52,17 +53,17 @@ image.src = `.${headphoneProduct.image}`
 asd.innerHTML = headphoneProduct.name
 
 function detail(){
-    
-    if(a % 2 == 0){
-        for(let i=0;i<p.length;i++){
-            p[i].style.display = "none"
-        }
-    }else if(a % 2 == 1){
-        for(let i=0;i<p.length;i++){
-            p[i].style.display = "block"
-        }
-    }
-    a++
+        console.log(a);
+//     if(a % 2 == 0){
+//         for(let i=0;i<p.length;i++){
+//             p[i].style.display = "none"
+//         }
+//     }else if(a % 2 == 1){
+//         for(let i=0;i<p.length;i++){
+//             p[i].style.display = "block"
+//         }
+//     }
+//     a++
     
 }
 function buy(){
@@ -77,21 +78,22 @@ function buy(){
     f++
     
 }
-function compa(){
-    if(c % 2 == 0){
-        compatibility[0].style.display = "none"
+// function compa(){
+//     if(c % 2 == 0){
+//         compatibility[0].style.display = "none"
        
-    }else if(c % 2 == 1){
-        compatibility[0].style.display = "block"
-    }
-    c++
-}
+//     }else if(c % 2 == 1){
+//         compatibility[0].style.display = "block"
+//     }
+//     c++
+// }
 function sold(){
     
     let flag = -1
     if(scaner == ""){
         console.log("$#@(&*&^!@#&*(&*(#!@#");
         console.log(scaner);
+        alert("Bạn cần đăng nhập để mua hàng")
     }else if(scaner == true){
         let checkLogin = JSON.parse(localStorage.getItem("checkLogin"))
         let user =  JSON.parse(localStorage.getItem("user"))
@@ -108,6 +110,8 @@ function sold(){
                             console.log("chưa có ");
                             alert("Thêm vào giỏ hàng thành công")
                             user[i].cart.push({ ...product[j], quantity: 1 });
+                            item.push({ ...product[j], quantity:1})
+                            localStorage.setItem("item", JSON.stringify(item));
                             localStorage.setItem("user", JSON.stringify(user));
                             showQuantityCart()
                         } else {
@@ -139,8 +143,9 @@ function showQuantityCart(){
 
 function checkItem(){
     let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
-    let user =  JSON.parse(localStorage.getItem("user"))
     if(scaner==true){
+        let user =  JSON.parse(localStorage.getItem("user"))
+        console.log("666666666666666666",user);
         for(let i = 0; i < user.length; i++){
             if(user[i].id == checkLogin){
                 b.innerHTML = user[i].cart.length

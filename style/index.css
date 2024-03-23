@@ -112,6 +112,43 @@ li{
     /* display: none; */
     display: block;
 }
+
+.sub-theme-banner{
+    width: 430px;
+    font-size: 24px;
+}
+.main-theme-banner{
+    color: white;
+    font-size: 50px;
+}
+
+.setting{
+    padding-top: 250px;
+    margin-left: 150px;
+}
+.learn{
+    width: 130px;
+    height: 60px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.shop{
+    width: 130px;
+    height: 60px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.learn:hover{
+    cursor: pointer;
+    background-color: #000e17;
+    color: white;
+}
+.shop:hover{
+    cursor: pointer;
+    background-color: #000e17;
+    color: white;
+}
+
 /* Main*/
 .main-main{
     margin-top: 150px;
@@ -122,7 +159,6 @@ li{
 .headphone{
     display: flex;
     gap: 30px;
-    justify-content: center;
     padding-bottom: 150px;
 }
 .headphone img{
@@ -168,6 +204,8 @@ li{
 .item:hover{
     border: 1px solid red;
 }
+
+
 
 
 /*Footer*/

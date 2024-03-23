@@ -29,10 +29,12 @@ function redirect(){
 let product = [
     {
         name:"Logitech G Pro Gaming",
-        price:"1.050.000đ",
-        money: VND.format("1050000"),
+        price:"Price: 1.050.000đ",
+        totalMoney:1050000,
+        money: 1050000,
         image:"./asset/image/logitech_981_000719_g_pro_gaming_headset_1418048.jpg",
         id:1,
+        mainStock:20,
         stock:20,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 183.0 mm",
@@ -43,10 +45,12 @@ let product = [
     },
     {
         name:"Logitech G332 wired Stereo Gaming",
-        price:"839.000đ",
-        money: VND.format("839000"),
+        price:"Price: 839.000đ",
+        totalMoney:839000,
+        money: 839000,
         image:"./asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg",
         id:2,
+        mainStock:10,
         stock:10,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 18 mm",
@@ -57,10 +61,12 @@ let product = [
     },
     {
         name:"Logitech G545 Wireless Lighting Rgb",
-        price:"1.550.000đ",
-        money: VND.format("1550000"),
+        price:"Price: 1.550.000đ",
+        totalMoney:1550000,
+        money: 1550000,
         image:"./asset/image/R.jpg",
         id:3,
+        mainStock:9,
         stock:9,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 180 mm",
@@ -71,10 +77,12 @@ let product = [
     },
     {
         name:"Logitech G332 Wired Stereo Gaming",
-        price:"650.000đ",
-        money: VND.format("650000"),
+        price:"Price: 650.000đ",
+        totalMoney:650000,
+        money: 650000,
         image:"./asset/image/logitech_981_000755_g332_wired_stereo_gaming_1456197.jpg",
-        id:4,
+        id:4,        
+        mainStock:11,
         stock:11,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 83.0 mm",
@@ -89,10 +97,12 @@ let product = [
 let mouseProduct = [
     {
         name:"Logitech Wireless Mouse M325 Black",
-        price:"450.000đ",
-        money: VND.format("450000"),
+        price:"Price: 450.000đ",
+        totalMoney:450000,
+        money: 450000,
         image:"./asset/image/Logitech_910_001935_M705_Marathon_Mouse_728231.jpg",
-        id:1,
+        id:1,        
+        mainStock:20,
         stock:20,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 83.0 mm",
@@ -103,10 +113,12 @@ let mouseProduct = [
     },
     {
         name:"Logitech Wireless Mouse M325 Black",
-        price:"750.000đ",
-        money: VND.format("750000"),
+        price:"Price: 750.000đ",
+        totalMoney:750000,
+        money: 750000,
         image:"./asset/image/Logitech_910_002974_Wireless_Mouse_M325_Black_882513.jpg",
-        id:2,
+        id:2,        
+        mainStock:11,
         stock:11,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 18.0 mm",
@@ -117,10 +129,12 @@ let mouseProduct = [
     },
     {
         name:"Logitech Wireless Mouse M325 Black",
-        price:"960.000đ",
-        money: VND.format("960000"),
+        price:"Price: 960.000đ",
+        totalMoney:960000,
+        money: 960000,
         image:"./asset/image/logitech_910_005270_pro_wireless_gaming_mouse_1442777.jpg",
-        id:3,
+        id:3,        
+        mainStock:8,
         stock:8,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 183.0 mm",
@@ -131,10 +145,12 @@ let mouseProduct = [
     },
     {
         name:"Logitech Wireless Mouse M325 Black",
-        price:"670.000đ",
-        money: VND.format("670000"),
+        price:"Price: 670.000đ",
+        totalMoney:670000,
+        money: 670000,
         image:"./asset/image/logitech_910_005790_g203_lightsync_gaming_mouse_1574402.jpg",
-        id:4,
+        id:4,        
+        mainStock:17,
         stock:17,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
         height: "Height: 183.0 mm",
@@ -163,7 +179,7 @@ function renderProduct(){
     let element = "";
     let element2 = "";
     for (let i = 0 ;i<product.length;i++){
-        element +=`        <a href="./util/product_detail.html?id=${product[i].id}"><span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span></a>
+        element +=`        <li><a href="./util/product_detail.html?id=${product[i].id}"><span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
 
         `
         element2+=`<span href="" class="item"><img src="${mouseProduct[i].image}" alt=""><p class="mouse-name">${mouseProduct[i].name}</p><p>${mouseProduct[i].price}</p><p><input onclick="sold()" id="button" value="Buy now" type="button"></p></span>
@@ -228,16 +244,15 @@ console.log(checkLogin);
 //         }
 // }
 
-// function checkItem(){
-//     let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
-//     let user =  JSON.parse(localStorage.getItem("user"))
-//     if(scan==true){
-//         for(let i = 0; i < user.length; i++){
-//             if(user[i].id == checkLogin){
-//                 b.innerHTML = user[i].cart.length
-//             }
-//         }
-//     }
-   
-// }
-// checkItem()
+function checkItem(){
+    let checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
+    let user =  JSON.parse(localStorage.getItem("user"))
+    if(scan==true){
+        for(let i = 0; i < user.length; i++){
+            if(user[i].id == checkLogin){
+                b.innerHTML = user[i].cart.length
+            }       
+        }
+    }
+}
+checkItem()
