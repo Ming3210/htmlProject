@@ -6,6 +6,7 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 header{
+    
     padding: 0px 50px;
     width: 100%;
     height: 80px;
@@ -14,6 +15,14 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+body{
+    
+    background-image: url(../asset/image/main-bg-dark.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1a182b;
+    
 }
 .x{
     display: flex !important;
@@ -28,7 +37,7 @@ header{
     border-radius: 50%;
     z-index: 2;
     font-size: 13px;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .OwO{
     width: 100%;
@@ -36,7 +45,7 @@ header{
     background-image: url(../asset/image/banner2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 li{
@@ -87,7 +96,7 @@ li{
     border: 1px solid turquoise;
 }
 .search i{
-    color: white;
+    color: rgb(255, 255, 255);
     position: relative;
     right: 35px;
     top: 3px;
@@ -113,6 +122,9 @@ li{
     display: block;
 }
 
+.nt ul li p{
+    color: white;
+}
 .sub-theme-banner{
     width: 430px;
     font-size: 24px;
@@ -184,11 +196,16 @@ li{
     flex-direction: column;
     gap: 20px;
 }
+.item img{
+    object-fit: cover;
+    width: auto;
+    height: 350px;
+}
 .mouse{
     
     display: flex;
     gap :30px;
-    justify-content: center;
+    color: white;
 }
 .mouse img{
     

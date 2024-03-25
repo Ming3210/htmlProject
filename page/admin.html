@@ -2,10 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="../style/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <div id="all">
+        <div class="side-bar">
+            <div>
+                
+                <span ><h2 id="logo"><i class='bx bxl-discord-alt'></i>Admin</h2></span>
+                <hr>
+            </div>
+            <div class="side-menu">
+                <ul>
+                    <li id="user">
+                        <i  class='bx bxs-user' ></i>
+                        Users 
+                    </li>
+                    <li id="product">
+                        <i class='bx bxs-cart-alt'></i>
+                        Product
+                    </li>
+                    <li id="delivery">
+                        <i class='bx bx-file-blank'></i>
+                        Delivery
+                    </li>
+                    <li id="add">
+                        <i class="fa-solid fa-plus"></i>
+                        Add a product
+                    </li>
+                    <li id="logout">
+                        <i class='bx bx-log-in' ></i>
+                        Logout
+                    </li>
+                </ul>
+            </div>
+        </div>
     
+       <div style="width: 100%;">
+           <div class="menu">
+            <div class="sub-menu">
+                <span class="icon"><i class='bx bx-menu-alt-left'></i></span>
+                <span><input class="search" type="search" placeholder="Search here..."></span>
+                <span class="search-icon"><i class='bx bx-search'></i></span>
+               </div> 
+               <div class="notify">
+                   <span class="bell"><i class='bx bx-bell'></i></span>
+                   
+                   <span>
+                    <img src="../asset/image/displayicon.jpg" alt=""><i id="arrow" class='bx bx-chevron-down'></i>
+                    <!-- <p class="admin-name">Yoru</p> -->
+                </span>
+               </div>
+           </div>
+
+
+           <!--
+            User
+           -->
+           <div class="user-form" >
+                <table border="1">
+                    <thead>
+                        <th>STT</th>
+                        <th>User First Name</th>
+                        <th>User Last Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th colspan="2">Edit</th>
+                    </thead>
+                    <tbody id="tr-2" class="user">
+                        <tr >
+                            <td>1</td>
+                            <td>Pham Van</td>
+                            <td>Minh</td>
+                            <td>aabcxyz012@gmail.com</td>
+                            <td>Customer</td>
+                            <td><button><i class="fa-solid fa-ban"></i>  Ban </button></td>
+                            <td><button><i class="fa-solid fa-trash"></i> Delete</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+           </div>
+
+           <!--
+            Product
+           -->
+
+           <div class="product-form">
+            <table border="1">
+                <thead>
+                    <th>STT</th>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Stock</th>
+                    <th colspan="2">Edit</th>
+                </thead>
+                <tbody id="tr" class="product">
+                    <tr >
+                        <td>1</td>
+                        <td>RGB lighting</td>
+                        <td><img src="../asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg" alt=""></td>
+                        <td>Headphone</td>
+                        <td>10</td>
+                        <td>
+                                <button><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                            <button><i class="fa-solid fa-trash"></i> Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+           </div>
+        </div>
+    </div>
+
+<script src="../js/admin.js"></script>
 </body>
 </html>

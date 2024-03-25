@@ -26,7 +26,7 @@ function redirect(){
 
 //render
 
-let product = [
+let item = [
     {
         name:"Logitech G Pro Gaming",
         price:"Price: 1.050.000đ",
@@ -90,76 +90,78 @@ let product = [
         thickness: "Thickness: 73 mm",
         weight: "Weight: 185 g",
         compatibility:"Windows, Mac OS, Linux"
-    }
+    },
+    {
+    
+    name:"Logitech Wireless Mouse M325 Black",
+    price:"Price: 450.000đ",
+    totalMoney:450000,
+    money: 450000,
+    image:"./asset/image/Logitech_910_001935_M705_Marathon_Mouse_728231.jpg",
+    id:5,        
+    mainStock:20,
+    stock:20,
+    description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
+    height: "Height: 83.0 mm",
+    width: "Width: 16.7 mm",
+    thickness: "Thickness: 73 mm",
+    weight: "Weight: 185 g",
+    compatibility:"Windows, Mac OS, Linux"
+},
+{
+    name:"Logitech Wireless Mouse M325 Black",
+    price:"Price: 750.000đ",
+    totalMoney:750000,
+    money: 750000,
+    image:"./asset/image/Logitech_910_002974_Wireless_Mouse_M325_Black_882513.jpg",
+    id:6,        
+    mainStock:11,
+    stock:11,
+    description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
+    height: "Height: 18.0 mm",
+    width: "Width: 1mm",
+    thickness: "Thickness: 73 mm",
+    weight: "Weight: 185 g",
+    compatibility:"Windows, Mac OS, Linux"
+},
+{
+    name:"Logitech Wireless Mouse M325 Black",
+    price:"Price: 960.000đ",
+    totalMoney:960000,
+    money: 960000,
+    image:"./asset/image/logitech_910_005270_pro_wireless_gaming_mouse_1442777.jpg",
+    id:7,        
+    mainStock:8,
+    stock:8,
+    description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
+    height: "Height: 183.0 mm",
+    width: "Width: 169.7 mm",
+    thickness: "Thickness: 73 mm",
+    weight: "Weight: 185 g",
+    compatibility:"Windows, Mac OS, Linux"
+},
+{
+    name:"Logitech Wireless Mouse M325 Black",
+    price:"Price: 670.000đ",
+    totalMoney:670000,
+    money: 670000,
+    image:"./asset/image/logitech_910_005790_g203_lightsync_gaming_mouse_1574402.jpg",
+    id:8,        
+    mainStock:17,
+    stock:17,
+    description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
+    height: "Height: 183.0 mm",
+    width: "Width: 169.7 mm",
+    thickness: "Thickness: 73 mm",
+    weight: "Weight: 185 g",
+    compatibility:"Windows, Mac OS, Linux"
+},
 ]
 
 
-let mouseProduct = [
-    {
-        name:"Logitech Wireless Mouse M325 Black",
-        price:"Price: 450.000đ",
-        totalMoney:450000,
-        money: 450000,
-        image:"./asset/image/Logitech_910_001935_M705_Marathon_Mouse_728231.jpg",
-        id:1,        
-        mainStock:20,
-        stock:20,
-        description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
-        height: "Height: 83.0 mm",
-        width: "Width: 16.7 mm",
-        thickness: "Thickness: 73 mm",
-        weight: "Weight: 185 g",
-        compatibility:"Windows, Mac OS, Linux"
-    },
-    {
-        name:"Logitech Wireless Mouse M325 Black",
-        price:"Price: 750.000đ",
-        totalMoney:750000,
-        money: 750000,
-        image:"./asset/image/Logitech_910_002974_Wireless_Mouse_M325_Black_882513.jpg",
-        id:2,        
-        mainStock:11,
-        stock:11,
-        description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
-        height: "Height: 18.0 mm",
-        width: "Width: 1mm",
-        thickness: "Thickness: 73 mm",
-        weight: "Weight: 185 g",
-        compatibility:"Windows, Mac OS, Linux"
-    },
-    {
-        name:"Logitech Wireless Mouse M325 Black",
-        price:"Price: 960.000đ",
-        totalMoney:960000,
-        money: 960000,
-        image:"./asset/image/logitech_910_005270_pro_wireless_gaming_mouse_1442777.jpg",
-        id:3,        
-        mainStock:8,
-        stock:8,
-        description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
-        height: "Height: 183.0 mm",
-        width: "Width: 169.7 mm",
-        thickness: "Thickness: 73 mm",
-        weight: "Weight: 185 g",
-        compatibility:"Windows, Mac OS, Linux"
-    },
-    {
-        name:"Logitech Wireless Mouse M325 Black",
-        price:"Price: 670.000đ",
-        totalMoney:670000,
-        money: 670000,
-        image:"./asset/image/logitech_910_005790_g203_lightsync_gaming_mouse_1574402.jpg",
-        id:4,        
-        mainStock:17,
-        stock:17,
-        description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
-        height: "Height: 183.0 mm",
-        width: "Width: 169.7 mm",
-        thickness: "Thickness: 73 mm",
-        weight: "Weight: 185 g",
-        compatibility:"Windows, Mac OS, Linux"
-    },
-]
+// let product = [
+    
+// ]
 
 
 
@@ -167,7 +169,7 @@ let mouseProduct = [
 
 
 
-localStorage.setItem("headphone",JSON.stringify(product))
+localStorage.setItem("item",JSON.stringify(item))
 
 // let headphone = JSON.parse(localStorage.getItem("headphone")) || []
 
@@ -178,14 +180,17 @@ localStorage.setItem("headphone",JSON.stringify(product))
 function renderProduct(){
     let element = "";
     let element2 = "";
-    for (let i = 0 ;i<product.length;i++){
-        element +=`        <li><a href="./util/product_detail.html?id=${product[i].id}"><span href="" class="item"><img src="${product[i].image}" alt=""><p class="headphone-name">${product[i].name}</p><p>${product[i].price}</p><p><input onclick="sold(${product[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
+    for (let i = 0 ;i<item.length/2;i++){
+        element +=`        <li><a href="./util/product_detail.html?id=${item[i].id}"><span href="" class="item"><img src="${item[i].image}" alt=""><p class="headphone-name">${item[i].name}</p><p>${item[i].price}</p><p><input onclick="sold(${item[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
 
         `
-        element2+=`<span href="" class="item"><img src="${mouseProduct[i].image}" alt=""><p class="mouse-name">${mouseProduct[i].name}</p><p>${mouseProduct[i].price}</p><p><input onclick="sold()" id="button" value="Buy now" type="button"></p></span>
-        `
+        
     }
 
+    for(let i = item.length/2 ;i<item.length;i++){
+        element2+=`<li><a href="./util/product_detail.html?id=${item[i].id}"><span href="" class="item"><img src="${item[i].image}" alt=""><p class="mouse-name">${item[i].name}</p><p>${item[i].price}</p><p><input onclick="sold(${item[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
+        `
+    }
     document.getElementById("headphone-product").innerHTML = element
     document.getElementById("mouse-product").innerHTML = element2
 }
