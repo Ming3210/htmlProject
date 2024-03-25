@@ -32,7 +32,6 @@ let id = window.location.href.split("?")[1].split("=")[1]
 let headphoneProductList = JSON.parse(localStorage.getItem("item"))
 
 
-console.log(headphoneProductList);
 let headphoneProduct = headphoneProductList.find(function(e,i){
     return e.id === +id;
 });
@@ -96,8 +95,7 @@ function sold(){
                             alert("Hàng đã có trong giỏ")
                             //có rồi đi tăng số lượng
                             // mình phải biết vị trí của cái cần tăng
-                            // user[i].cart[index].quantity = ++user[i].cart[index].quantity;
-                            // user[i].cart[index].quantity = --user[i].cart[index].stock;
+                            
                             localStorage.setItem("user", JSON.stringify(user));
                         }
                     }

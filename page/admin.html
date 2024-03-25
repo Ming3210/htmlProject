@@ -19,23 +19,19 @@
             </div>
             <div class="side-menu">
                 <ul>
-                    <li id="user">
+                    <li  style="width: 94%;" id="user">
                         <i  class='bx bxs-user' ></i>
                         Users 
-                    </li>
-                    <li id="product">
+                    </li >
+                    <li   style="width: 94%;" id="product">
                         <i class='bx bxs-cart-alt'></i>
                         Product
                     </li>
-                    <li id="delivery">
+                    <li style="width: 94%;" id="delivery">
                         <i class='bx bx-file-blank'></i>
                         Delivery
                     </li>
-                    <li id="add">
-                        <i class="fa-solid fa-plus"></i>
-                        Add a product
-                    </li>
-                    <li id="logout">
+                    <li  style="width: 94%;" id="logout">
                         <i class='bx bx-log-in' ></i>
                         Logout
                     </li>
@@ -65,14 +61,17 @@
             User
            -->
            <div class="user-form" >
-                <table border="1">
+                <table id="user-table" border="1">
                     <thead>
-                        <th>STT</th>
-                        <th>User First Name</th>
-                        <th>User Last Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th colspan="2">Edit</th>
+                        <tr>
+
+                            <th>STT</th>
+                            <th>User First Name</th>
+                            <th>User Last Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th colspan="2">Edit</th>
+                        </tr>
                     </thead>
                     <tbody id="tr-2" class="user">
                         <tr >
@@ -82,7 +81,7 @@
                             <td>aabcxyz012@gmail.com</td>
                             <td>Customer</td>
                             <td><button><i class="fa-solid fa-ban"></i>  Ban </button></td>
-                            <td><button><i class="fa-solid fa-trash"></i> Delete</button></td>
+                            <td><button><i class='bx bxs-lock-open-alt' ></i> Unlock</button></td>
                         </tr>
 
                     </tbody>
@@ -94,30 +93,104 @@
            -->
 
            <div class="product-form">
-            <table border="1">
+            <table id="product-table" border="1">
                 <thead>
-                    <th>STT</th>
-                    <th>Product Name</th>
-                    <th>Image</th>
-                    <th>Category</th>
-                    <th>Stock</th>
-                    <th colspan="2">Edit</th>
+                    <tr>
+
+                        <th>STT</th>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Stock</th>
+                        <th>Money</th>
+                        <th colspan="2">Edit</th>
+                    </tr>
                 </thead>
                 <tbody id="tr" class="product">
                     <tr >
                         <td>1</td>
                         <td>RGB lighting</td>
                         <td><img src="../asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg" alt=""></td>
-                        <td>Headphone</td>
                         <td>10</td>
                         <td>
-                                <button><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                            <button><i class="fa-solid fa-pen-to-square"></i>Edit</button>
                             <button><i class="fa-solid fa-trash"></i> Delete</button>
                         </td>
                     </tr>
 
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td  colspan="7"><button onclick="addProduct()" style="width: 100%;">ADD A PRODUCT</button></td>
+                    </tr>
+                </tfoot>
             </table>
+
+            <br><br>
+            <form id="form" action="">
+                
+                <label for="">NAME</label>
+                <input id="name" type="text"><br><br>
+                <label for="">MONEY</label>
+                <input id="money" name="money" type="text"><br><br>
+                <label for="">ID</label>
+                <input id="id" type="text"><br><br>
+                <label for="">IMAGE</label>
+                <input type="file" id="image"><br><br>
+                <label for="">HEIGHT</label>
+                <input id="height" type="text"><br><br>
+                <label for="">WEIGHT</label>
+                <input id="weight" type="text"><br><br>
+                <label for="">WIDTH</label>
+                <input id="width" type="text"><br><br>
+                <label for="">THICKNESS</label>
+                <input id="thickness" type="text"><br><br>
+                <label for="">COMPATIBILITY</label>
+                <input id="compatibility" type="text"><br><br>
+                <label for="">CATEGORY</label>
+                <input id="category" type="text"><br><br>
+                <label for="">STOCK</label>
+                <input id="stock" type="text"><br><br>
+                <label for="">DESCRIPTION</label>
+                <textarea style="width: 165px;" name="" id="description" cols="20" rows="5"></textarea><br><br>
+                <input onclick="add()" id="" style="text-align: center;width: 100%;" type="button" value="Add">
+                <br>
+                <input onclick="addDown()" style="text-align: center;width: 100%;" type="button" value="Close">
+
+                
+            </form>
+           </div>
+
+
+           <!--
+            Delivery
+           -->
+
+           <div class="delivery-form">
+            <table id="delivery-table" border="1">
+                <thead>
+                    <tr>
+
+                        <th>STT</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th colspan="2">Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="tr-3" class="delivery">
+                    <tr >
+                        <td>1</td>
+                        <td>Pham</td>
+                        <td>Minh</td>
+                        <td>0123456789</td>
+                        <td>123 Street</td>
+                        <td>Thanh Hoa</td>
+                        <td>
+                                <button><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                            <button><i class="fa-solid fa-trash"></i> Delete</button>
+                        </td>
+                    </tr>
            </div>
         </div>
     </div>

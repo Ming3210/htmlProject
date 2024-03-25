@@ -32,6 +32,8 @@ let item = [
         price:"Price: 1.050.000đ",
         totalMoney:1050000,
         money: 1050000,
+
+        category:1,
         image:"./asset/image/logitech_981_000719_g_pro_gaming_headset_1418048.jpg",
         id:1,
         mainStock:20,
@@ -42,12 +44,15 @@ let item = [
         thickness: "Thickness: 73 mm",
         weight: "Weight: 185 g",
         compatibility:"Windows, Mac OS, Linux"
+,
+status:true,
     },
     {
         name:"Logitech G332 wired Stereo Gaming",
         price:"Price: 839.000đ",
         totalMoney:839000,
         money: 839000,
+        category:1,
         image:"./asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg",
         id:2,
         mainStock:10,
@@ -58,12 +63,15 @@ let item = [
         thickness: "Thickness: 73 mm",
         weight: "Weight: 185 g",
         compatibility:"Windows, Mac OS, Linux"
+,
+status:true,
     },
     {
         name:"Logitech G545 Wireless Lighting Rgb",
         price:"Price: 1.550.000đ",
         totalMoney:1550000,
         money: 1550000,
+        category:1,
         image:"./asset/image/R.jpg",
         id:3,
         mainStock:9,
@@ -74,12 +82,15 @@ let item = [
         thickness: "Thickness: 73 mm",
         weight: "Weight: 185 g",
         compatibility:"Windows, Mac OS, Linux"
+,
+status:true,
     },
     {
         name:"Logitech G332 Wired Stereo Gaming",
         price:"Price: 650.000đ",
         totalMoney:650000,
         money: 650000,
+        category:1,
         image:"./asset/image/logitech_981_000755_g332_wired_stereo_gaming_1456197.jpg",
         id:4,        
         mainStock:11,
@@ -90,6 +101,8 @@ let item = [
         thickness: "Thickness: 73 mm",
         weight: "Weight: 185 g",
         compatibility:"Windows, Mac OS, Linux"
+,
+status:true,
     },
     {
     
@@ -97,6 +110,7 @@ let item = [
     price:"Price: 450.000đ",
     totalMoney:450000,
     money: 450000,
+    category:2,
     image:"./asset/image/Logitech_910_001935_M705_Marathon_Mouse_728231.jpg",
     id:5,        
     mainStock:20,
@@ -106,13 +120,15 @@ let item = [
     width: "Width: 16.7 mm",
     thickness: "Thickness: 73 mm",
     weight: "Weight: 185 g",
-    compatibility:"Windows, Mac OS, Linux"
+    compatibility:"Windows, Mac OS, Linux",
+    status:true,
 },
 {
     name:"Logitech Wireless Mouse M325 Black",
     price:"Price: 750.000đ",
     totalMoney:750000,
     money: 750000,
+    category:2,
     image:"./asset/image/Logitech_910_002974_Wireless_Mouse_M325_Black_882513.jpg",
     id:6,        
     mainStock:11,
@@ -122,13 +138,15 @@ let item = [
     width: "Width: 1mm",
     thickness: "Thickness: 73 mm",
     weight: "Weight: 185 g",
-    compatibility:"Windows, Mac OS, Linux"
+    compatibility:"Windows, Mac OS, Linux",
+    status:true,
 },
 {
     name:"Logitech Wireless Mouse M325 Black",
     price:"Price: 960.000đ",
     totalMoney:960000,
     money: 960000,
+    category:2,
     image:"./asset/image/logitech_910_005270_pro_wireless_gaming_mouse_1442777.jpg",
     id:7,        
     mainStock:8,
@@ -138,13 +156,15 @@ let item = [
     width: "Width: 169.7 mm",
     thickness: "Thickness: 73 mm",
     weight: "Weight: 185 g",
-    compatibility:"Windows, Mac OS, Linux"
+    compatibility:"Windows, Mac OS, Linux",
+    status:true,
 },
 {
     name:"Logitech Wireless Mouse M325 Black",
     price:"Price: 670.000đ",
     totalMoney:670000,
     money: 670000,
+    category:2,
     image:"./asset/image/logitech_910_005790_g203_lightsync_gaming_mouse_1574402.jpg",
     id:8,        
     mainStock:17,
@@ -154,18 +174,38 @@ let item = [
     width: "Width: 169.7 mm",
     thickness: "Thickness: 73 mm",
     weight: "Weight: 185 g",
-    compatibility:"Windows, Mac OS, Linux"
+    compatibility:"Windows, Mac OS, Linux",
+    status:true,
 },
 ]
 
 
+let categoryList = [
+    {
+        name:"Headphone",
+        id:1,
+    },
+    {
+        name:2,
+        id:2,
+    }
+]
+
+
+localStorage.setItem("category",JSON.stringify(categoryList))
+
+
+let category = JSON.parse(localStorage.getItem("category")) || []
 // let product = [
     
 // ]
 
-
-
-
+let headphone = item.filter(function(e,i){
+    return e.category === 1;
+})
+let mouse = item.filter(function(e,i){
+    return e.category === 2;
+})
 
 
 
@@ -180,15 +220,27 @@ localStorage.setItem("item",JSON.stringify(item))
 function renderProduct(){
     let element = "";
     let element2 = "";
-    for (let i = 0 ;i<item.length/2;i++){
-        element +=`        <li><a href="./util/product_detail.html?id=${item[i].id}"><span href="" class="item"><img src="${item[i].image}" alt=""><p class="headphone-name">${item[i].name}</p><p>${item[i].price}</p><p><input onclick="sold(${item[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
+
+    for (let index in headphone) {
+        console.log("12312312321312312312312321",headphone[index]);
+        element +=`        <li>
+        <a href="./util/product_detail.html?id=${headphone[index].id}"><span href="" class="item"><img src="${headphone[index].image}" alt=""><p class="headphone-name">${headphone[index].name}</p><p>${headphone[index].price}</p><p><input onclick="sold(${headphone[index].id})" id="button" value="Buy now" type="button"></p></span></a>
+        
+        </li>
 
         `
-        
     }
 
-    for(let i = item.length/2 ;i<item.length;i++){
-        element2+=`<li><a href="./util/product_detail.html?id=${item[i].id}"><span href="" class="item"><img src="${item[i].image}" alt=""><p class="mouse-name">${item[i].name}</p><p>${item[i].price}</p><p><input onclick="sold(${item[i].id})" id="button" value="Buy now" type="button"></p></span></a></li>
+
+
+
+    // for (let i = 0 ;i<item.length/2;i++){
+        
+        
+    // }
+
+    for(let index in mouse){
+        element2+=`<li><a href="./util/product_detail.html?id=${mouse[index].id}"><span href="" class="item"><img src="${mouse[index].image}" alt=""><p class="mouse-name">${mouse[index].name}</p><p>${mouse[index].price}</p><p><input onclick="sold(${mouse[index].id})" id="button" value="Buy now" type="button"></p></span></a></li>
         `
     }
     document.getElementById("headphone-product").innerHTML = element
