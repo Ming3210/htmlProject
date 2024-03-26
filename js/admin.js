@@ -48,7 +48,7 @@ delivery.onclick = function(){
 function userClick(){
 
     userTable.style.display = "block"
-    userTable.style.width = "45%"
+    userTable.style.width = "38%"
     user.style.backgroundColor = "white"
     user.style.borderRadius = "16px 0px 0px 16px"
     productTable.style.display = "none"
@@ -80,9 +80,7 @@ function deliveryClick(){
 function renderProduct(){
     let checkLogin = JSON.parse(localStorage.getItem("checkLogin"))
     let item = JSON.parse(localStorage.getItem("item"))||[]
-    console.log(item);
     let user = JSON.parse(localStorage.getItem("user"))||[]
-    console.log(user);
     let element =``
     let element2 =``
     for (let i=0; i<item.length;i++){
@@ -95,11 +93,11 @@ function renderProduct(){
                 <td>${item[i].stock}</td>
                 <td>${VND.format(item[i].money)}</td>
                 <td>
-                        <button><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                        <button onclick="editProduct(${item[i].id})"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
                     
                 </td>
                 <td>
-                    <button><i class="fa-solid fa-trash"></i> Delete</button>
+                    <button id="btn-ban" onclick="deleteProduct(${item[i].id})"><i  class="fa-solid fa-trash"></i>Delete</button>
                 </td>
             </tr>
         `
@@ -107,18 +105,31 @@ function renderProduct(){
         
     for (let i=0; i<user.length;i++){
         
-            
+       if(user[i].status == true){
         element2 +=`
-            <tr >
-                <td>${i+1}</td>
-                <td>${user[i].fname}</td>
-                <td>${user[i].lname}</td>
-                <td>${user[i].email}</td>
-                <td>Customer</td>
-                <td><button><i class="fa-solid fa-ban"></i>  Ban </button></td>
-                <td><button><i class='bx bxs-lock-open-alt' ></i> Unlock</button></td>
-            </tr>
-        `
+        <tr >
+            <td>${i+1}</td>
+            <td>${user[i].fname}</td>
+            <td>${user[i].lname}</td>
+            <td>${user[i].email}</td>
+            <td>Customer</td>
+            <td><button onclick="banUser(${user[i].id})" class="btn-ban" ><i class="fa-solid fa-ban"></i>Ban</button></td>
+            
+        </tr>
+    `
+       }else if(user[i].status == false){
+        element2 +=`
+        <tr >
+            <td>${i+1}</td>
+            <td>${user[i].fname}</td>
+            <td>${user[i].lname}</td>
+            <td>${user[i].email}</td>
+            <td>Customer</td>
+            <td><button onclick="banUser(${user[i].id})" class="btn-ban" ><i class="bx bxs-lock-open-alt"></i>Unban</button></td>
+            
+        </tr>
+    `
+       }
         
         
         
@@ -168,10 +179,16 @@ function addDown(){
     form.style.display = "none"
 }
 
+function uuidv4() {
+    return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+      (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+    );
+}
+  
+
 function add(){
     let compatibility = document.getElementById("compatibility")
     let category = document.getElementById("category")
-    let id = document.getElementById("id")
     let name = document.getElementById("name")
     let image = document.getElementById("image")
     let stock = document.getElementById("stock")
@@ -183,7 +200,6 @@ function add(){
     let description = document.getElementById("description")
     let item = JSON.parse(localStorage.getItem("item"))||[]
     
-    console.log(item);
     var originalPath = image.value;
 
         function convertPath(originalPath) {
@@ -195,26 +211,88 @@ function add(){
         }
 
     var newPath = convertPath(originalPath);
-console.log(newPath);
         let newItem = {
         compatibility: compatibility.value,
-        category: category.value,
-        id: id.value,
+        category: +category.value,
+        id: Math.floor(Math.random() *9999999999999999999),
         name: name.value,
         image: newPath,
-        stock: stock.value,
-        money: money.value,
+        mainStock: +stock.value,
+        stock: +stock.value,
+        money: +money.value,
         height: `Height : ${height.value}`,
         width: `Width : ${width.value}`,
         thickness: `Thickness : ${thickness.value}`,
         description: description.value,
         weight : `Weight : ${weight.value}`,
-        totalMoney: money,
+        totalMoney: +money.value,
         price:`Price: ${money.value}`
     }
     item.push(newItem)
     localStorage.setItem("item",JSON.stringify(item))
     renderProduct()
-    console.log("aaaaa",item);
     // form.style.display = "none"
+}
+
+function deleteProduct(id){
+    let item = JSON.parse(localStorage.getItem("item") )||[]
+    for(let i = 0;i<item.length;i++){
+        if(item[i].id == id){
+            let confirmDeleteProduct = confirm("Are you sure you want to delete")
+            if(!confirmDeleteProduct){
+                return
+            }
+            item.splice(i,1)
+            localStorage.setItem("item",JSON.stringify(item))
+            break
+        }
+    }
+    renderProduct()
+}
+
+function banUser(id){
+    let user = JSON.parse(localStorage.getItem("user") )||[]
+    for(let i = 0;i < user.length;i++){
+        if(user[i].id == id){
+            if(user[i].status == true){
+                console.log("1");
+                document.getElementsByClassName("btn-ban")[i].innerHTML = `<i class="bx bxs-lock-open-alt"></i>  Unban </button>`
+                user[i].status = false
+            }else {
+                console.log("2");
+                document.getElementsByClassName("btn-ban")[i].innerHTML = `<i class="fa-solid fa-ban"></i>Ban</button>`
+                user[i].status = true
+            }
+        }
+    }
+    localStorage.setItem("user",JSON.stringify(user))
+    // renderProduct()
+}
+
+function editProduct(id){
+    let item = JSON.parse(localStorage.getItem("item") )||[]
+    for(let i = 0;i<item.length;i++){
+        if(item[i].id == id){
+            let compatibility = document.getElementById("compatibility")
+            let category = document.getElementById("category")
+            let name = document.getElementById("name")
+            let image = document.getElementById("image")
+            let stock = document.getElementById("stock")
+            let money = document.getElementById("money")
+            let weight = document.getElementById("weight")
+            let height = document.getElementById("height")
+            let width = document.getElementById("width")
+            let thickness = document.getElementById("thickness")
+            let description = document.getElementById("description")
+            compatibility.value = item[i].compatibility
+            category.value = item[i].category
+            name.value = item[i].name
+            image.value = item[i].image
+            stock.value = item[i].stock
+            money.value = item[i].money
+            height.value = item[i].height
+            width.value = item[i].width
+            weight.value = item[i].weight
+        }
+    }
 }

@@ -26,7 +26,7 @@ function redirect(){
 
 //render
 
-let item = [
+let product = [
     {
         name:"Logitech G Pro Gaming",
         price:"Price: 1.050.000đ",
@@ -35,7 +35,7 @@ let item = [
 
         category:1,
         image:"./asset/image/logitech_981_000719_g_pro_gaming_headset_1418048.jpg",
-        id:1,
+        id:Math.floor(Math.random() *9999999999999999999),
         mainStock:20,
         stock:20,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -54,7 +54,7 @@ status:true,
         money: 839000,
         category:1,
         image:"./asset/image/logitech_981_000882_g733_lightspeed_wireless_rgb_1590052.jpg",
-        id:2,
+        id:Math.floor(Math.random() *9999999999999999999),
         mainStock:10,
         stock:10,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -73,7 +73,7 @@ status:true,
         money: 1550000,
         category:1,
         image:"./asset/image/R.jpg",
-        id:3,
+        id:Math.floor(Math.random() *9999999999999999999),
         mainStock:9,
         stock:9,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -92,7 +92,7 @@ status:true,
         money: 650000,
         category:1,
         image:"./asset/image/logitech_981_000755_g332_wired_stereo_gaming_1456197.jpg",
-        id:4,        
+        id:Math.floor(Math.random() *9999999999999999999),        
         mainStock:11,
         stock:11,
         description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -112,7 +112,7 @@ status:true,
     money: 450000,
     category:2,
     image:"./asset/image/Logitech_910_001935_M705_Marathon_Mouse_728231.jpg",
-    id:5,        
+    id:Math.floor(Math.random() *9999999999999999999),        
     mainStock:20,
     stock:20,
     description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -130,7 +130,7 @@ status:true,
     money: 750000,
     category:2,
     image:"./asset/image/Logitech_910_002974_Wireless_Mouse_M325_Black_882513.jpg",
-    id:6,        
+    id:Math.floor(Math.random() *9999999999999999999),        
     mainStock:11,
     stock:11,
     description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -148,7 +148,7 @@ status:true,
     money: 960000,
     category:2,
     image:"./asset/image/logitech_910_005270_pro_wireless_gaming_mouse_1442777.jpg",
-    id:7,        
+    id:Math.floor(Math.random() *9999999999999999999),        
     mainStock:8,
     stock:8,
     description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -166,7 +166,7 @@ status:true,
     money: 670000,
     category:2,
     image:"./asset/image/logitech_910_005790_g203_lightsync_gaming_mouse_1574402.jpg",
-    id:8,        
+    id:Math.floor(Math.random() *9999999999999999999),        
     mainStock:17,
     stock:17,
     description: "The wireless earbuds are lightweight—professional enough for the office, perfect for working from home.",
@@ -179,6 +179,7 @@ status:true,
 },
 ]
 
+// localStorage.setItem("item",JSON.stringify(product)) ||[]   
 
 let categoryList = [
     {
@@ -192,13 +193,16 @@ let categoryList = [
 ]
 
 
-localStorage.setItem("category",JSON.stringify(categoryList))
+localStorage.setItem("category",JSON.stringify(categoryList))||[]
 
 
 let category = JSON.parse(localStorage.getItem("category")) || []
 // let product = [
     
 // ]
+
+let item = JSON.parse(localStorage.getItem("item"))
+console.log("abcxyz",item);
 
 let headphone = item.filter(function(e,i){
     return e.category === 1;
@@ -209,7 +213,6 @@ let mouse = item.filter(function(e,i){
 
 
 
-localStorage.setItem("item",JSON.stringify(item))
 
 // let headphone = JSON.parse(localStorage.getItem("headphone")) || []
 

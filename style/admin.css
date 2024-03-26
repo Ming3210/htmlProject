@@ -12,7 +12,8 @@
 .side-bar{
     width: 415px;
     background-color: greenyellow;
-    height:100vh;
+    height:auto;
+    height: 100vh;
     position: sticky;
 }
 .side-menu ul li{
@@ -33,7 +34,6 @@
     cursor: pointer;
 }
 .sub-menu{
-    
     display: flex;
     align-items: center;
     height: 50px;
@@ -102,6 +102,8 @@
     height: 75px;
 }
 .product-form{
+    gap: 100px;
+    display: flex;
     margin-left: 20px;
     width: auto;
 }
@@ -119,7 +121,8 @@
 #form{
     display: none;
     border: 1px solid #0045ac;
-    width: 350px    ;
+
+    height: 516px;
 }
 #form label{
     display: inline-block;

@@ -27,7 +27,10 @@ if (scaner == true){
 
 }
 
+
+
 let id = window.location.href.split("?")[1].split("=")[1]
+console.log(id);
 
 let headphoneProductList = JSON.parse(localStorage.getItem("item"))
 
@@ -35,7 +38,10 @@ let headphoneProductList = JSON.parse(localStorage.getItem("item"))
 let headphoneProduct = headphoneProductList.find(function(e,i){
     return e.id === +id;
 });
-console.log("22212212",headphoneProduct.name);
+
+console.log(des[0].innerHTML);
+console.log(headphoneProduct);
+
 des[0].innerHTML = headphoneProduct.description
 price[0].innerHTML = headphoneProduct.price
 p[0].innerHTML = headphoneProduct.height

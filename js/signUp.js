@@ -22,7 +22,8 @@ function sendInfo(){
         email: email.value,
         password: password.value,
         repassword: repassword.value,
-        cart:[]
+        cart:[],
+        status: true
     }
     if(fnameError.style.display == "none" && lnameError.style.display == "none" && emailError.style.display == "none" && passwordError.style.display == "none" && repassError.style.display == "none" && checkbox.checked == true){
 
